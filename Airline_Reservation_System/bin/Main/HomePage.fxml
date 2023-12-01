@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="713.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.Home_Page">
+   <top>
+      <AnchorPane prefHeight="67.0" prefWidth="1185.0" stylesheets="@../Design/MainForm.css" BorderPane.alignment="CENTER">
+         <styleClass>
+            <String fx:value="white-bg" />
+            <String fx:value="shadow" />
+         </styleClass>
+         <children>
+            <Hyperlink fx:id="login_btn" accessibleRole="BUTTON" layoutX="875.0" layoutY="18.0" onAction="#loginBtn" prefHeight="31.0" prefWidth="48.0" stylesheets="@../Design/MainForm.css" text="Login">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="signup_btn" layoutX="951.0" layoutY="18.0" onAction="#signUpBtn" prefHeight="31.0" prefWidth="62.0" stylesheets="@../Design/MainForm.css" text="Sign up">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+            <Label fx:id="user_Label" layoutX="793.0" layoutY="21.0" prefHeight="35.0" prefWidth="154.0" visible="false" />
+            <FontAwesomeIcon fx:id="userIcon" glyphName="USER" layoutX="755.0" layoutY="48.0" size="3em" text="" visible="false" />
+            <Hyperlink fx:id="logout_btn" layoutX="949.0" layoutY="25.0" onAction="#logout" prefHeight="26.0" prefWidth="66.0" text="Logout" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="743.0" prefWidth="1035.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="711.0" fitWidth="1048.0" layoutX="-17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Design/daniela-cuevas-t7YycgAoVSw-unsplash.jpg" />
+               </image>
+            </ImageView>
+            <TabPane layoutX="181.0" layoutY="137.0" prefHeight="340.0" prefWidth="747.0" styleClass="tabpane" stylesheets="@../Design/MainForm.css" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab style="-fx-border-radius: 10 0 0 0; -fx-background-radius: 10 0 0 0;" text="Flights">
+                     <content>
+                        <AnchorPane prefHeight="248.0" prefWidth="715.0" stylesheets="@../Design/MainForm.css">
+                           <children>
+                              <AnchorPane fx:id="one_way_Pane" layoutX="5.0" layoutY="-3.0" prefHeight="213.0" prefWidth="728.0" style="-fx-background-radius: 0 10 10 10;" stylesheets="@../Design/MainForm.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <Button fx:id="round_trip_btn" layoutX="142.0" layoutY="23.0" mnemonicParsing="false" onAction="#roundTripBtn" prefHeight="32.0" prefWidth="92.0" styleClass="nav-btn" text="Round-trip" />
+                                    <Button fx:id="one_way_btn" layoutX="22.0" layoutY="23.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" styleClass="btn" text="One-way" />
+                                    <ComboBox fx:id="to_list" layoutX="279.0" layoutY="76.0" prefHeight="52.0" prefWidth="213.0" promptText="To" />
+                                    <ComboBox fx:id="from_list" layoutX="22.0" layoutY="76.0" prefHeight="52.0" prefWidth="213.0" promptText="From" />
+                                    <DatePicker fx:id="oneWay_depart_lsit" layoutX="521.0" layoutY="73.0" prefHeight="54.0" prefWidth="172.0" promptText="Depart" />
+                                    <ComboBox fx:id="class_list" layoutX="342.0" layoutY="147.0" prefWidth="150.0" promptText="Economy">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </ComboBox>
+                                    <Button layoutX="592.0" layoutY="154.0" mnemonicParsing="false" onAction="#search" prefHeight="41.0" prefWidth="101.0" styleClass="btn" text="Search" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="round_trip_pane" layoutX="4.0" prefHeight="221.0" prefWidth="708.0" style="-fx-background-radius: 0 10 10 10;" stylesheets="@../Design/MainForm.css" visible="false">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <Button layoutX="142.0" layoutY="23.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" styleClass="btn" text="Round-trip" />
+                                    <Button layoutX="22.0" layoutY="23.0" mnemonicParsing="false" onAction="#oneWayTripBtn" prefHeight="32.0" prefWidth="92.0" styleClass="nav-btn" text="One-way" />
+                                    <ComboBox layoutX="202.0" layoutY="76.0" prefHeight="52.0" prefWidth="151.0" promptText="To" />
+                                    <ComboBox layoutX="22.0" layoutY="76.0" prefHeight="52.0" prefWidth="150.0" promptText="From" />
+                                    <DatePicker layoutX="384.0" layoutY="75.0" prefHeight="54.0" prefWidth="138.0" promptText="Depart" />
+                                    <ComboBox layoutX="383.0" layoutY="151.0" prefWidth="150.0" promptText="Economy">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </ComboBox>
+                                    <ButtonBar layoutX="262.0" layoutY="56.0" prefHeight="40.0" prefWidth="200.0" />
+                                    <DatePicker layoutX="545.0" layoutY="75.0" prefHeight="54.0" prefWidth="138.0" promptText="Return" />
+                                    <Button layoutX="590.0" layoutY="165.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="101.0" styleClass="btn" text="Search" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/moham/OneDrive/Desktop/plane.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+                  <Tab style="-fx-border-radius: 0 10 0 0; -fx-background-radius: 0 10 0 0;" text="Hotels">
+                     <content>
+                        <AnchorPane prefHeight="220.0" prefWidth="718.0" stylesheets="@../Design/MainForm.css">
+                           <children>
+                              <AnchorPane layoutX="5.0" prefHeight="191.0" prefWidth="710.0" style="-fx-background-radius: 0 10 10 10;" stylesheets="@../Design/MainForm.css">
+                                 <styleClass>
+                                    <String fx:value="shadow" />
+                                    <String fx:value="white-bg" />
+                                 </styleClass>
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="234.0" text="Where do you want to stay?" textFill="#6b6b6b">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox layoutX="24.0" layoutY="61.0" prefHeight="52.0" prefWidth="213.0" promptText="Destination" />
+                                    <Button layoutX="600.0" layoutY="145.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="95.0" styleClass="btn" text="Search" />
+                                    <DatePicker layoutX="295.0" layoutY="60.0" prefHeight="54.0" prefWidth="179.0" promptText="Check In" />
+                                    <DatePicker layoutX="510.0" layoutY="60.0" prefHeight="54.0" prefWidth="179.0" promptText="Check Out" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Users/moham/OneDrive/Desktop/bed.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <AnchorPane fx:id="op_background" layoutY="-70.0" prefHeight="774.0" prefWidth="1048.0" styleClass="opbackground" stylesheets="@../Design/MainForm.css" visible="false" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-70.0">
+               <children>
+                  <AnchorPane fx:id="login_pane" layoutX="317.0" layoutY="133.0" prefHeight="488.0" prefWidth="413.0" stylesheets="@../Design/MainForm.css" visible="false">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="19.0" layoutY="17.0" prefHeight="85.0" prefWidth="105.0" text="Login">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="193.0" text="User Name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="274.0" text="Password">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="login_username_field" layoutX="125.0" layoutY="185.0" prefHeight="42.0" prefWidth="200.0" />
+                        <PasswordField fx:id="login_password_field" layoutX="125.0" layoutY="266.0" prefHeight="42.0" prefWidth="200.0" />
+                        <TextField fx:id="login_show_password_field" layoutX="125.0" layoutY="266.0" onKeyTyped="#loginUpdatePassword" prefHeight="42.0" prefWidth="200.0" visible="false" />
+                        <CheckBox fx:id="login_showpass_btn" layoutX="350.0" layoutY="279.0" mnemonicParsing="false" onAction="#showLoginPassword" text="Show" />
+                        <Button layoutX="126.0" layoutY="369.0" mnemonicParsing="false" onAction="#login" prefHeight="53.0" prefWidth="198.0" styleClass="nav-btn" text="Login" />
+                        <Button layoutX="383.0" layoutY="15.0" mnemonicParsing="false" onAction="#loginCloseBtn" prefHeight="30.0" prefWidth="20.0" />
+                        <FontAwesomeIcon glyphName="CLOSE" layoutX="388.0" layoutY="34.0" onMouseClicked="#loginCloseBtn" text="" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="signup_pane" layoutX="280.0" layoutY="133.0" prefHeight="488.0" prefWidth="487.0" stylesheets="@../Design/MainForm.css" visible="false">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="19.0" layoutY="17.0" prefHeight="88.0" prefWidth="138.0" text="Sign Up">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="44.0" layoutY="155.0" text="User Name">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="50.0" layoutY="230.0" text="Password">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="signup_username_field" layoutX="197.0" layoutY="148.0" prefHeight="42.0" prefWidth="200.0" />
+                        <PasswordField fx:id="signup_password_field" layoutX="197.0" layoutY="223.0" prefHeight="42.0" prefWidth="200.0" />
+                        <TextField fx:id="signup_showPassword_field" layoutX="197.0" layoutY="223.0" onKeyTyped="#signupUpdatePassword" prefHeight="42.0" prefWidth="200.0" visible="false" />
+                        <CheckBox fx:id="signup_showpass_btn" layoutX="412.0" layoutY="235.0" mnemonicParsing="false" onAction="#signUpShowPassword" text="Show" />
+                        <Button layoutX="144.0" layoutY="393.0" mnemonicParsing="false" onAction="#signup" prefHeight="53.0" prefWidth="198.0" styleClass="nav-btn" text="Sign Up" />
+                        <Button layoutX="444.0" layoutY="14.0" mnemonicParsing="false" onAction="#signUpCloseBtn" prefHeight="30.0" prefWidth="20.0" />
+                        <FontAwesomeIcon glyphName="CLOSE" layoutX="449.0" layoutY="33.0" onMouseClicked="#signUpCloseBtn" text="" />
+                        <Label layoutX="16.0" layoutY="304.0" text="Confirm Password">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="signup_confirmpassword_field" layoutX="197.0" layoutY="297.0" prefHeight="42.0" prefWidth="200.0" />
+                        <TextField fx:id="signup_show_confirmpassword_field" layoutX="197.0" layoutY="297.0" onKeyTyped="#signupUpdateConfirmPassword" prefHeight="42.0" prefWidth="200.0" visible="false" />
+                        <CheckBox fx:id="signup_showConpass_btn" layoutX="412.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpShowConfirmPassword" text="Show" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
