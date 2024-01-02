@@ -13,6 +13,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -38,25 +40,30 @@
                   <Font size="14.0" />
                </font>
             </Hyperlink>
-            <Label fx:id="user_Label" layoutX="793.0" layoutY="21.0" prefHeight="35.0" prefWidth="154.0" visible="false" />
             <FontAwesomeIcon fx:id="userIcon" glyphName="USER" layoutX="755.0" layoutY="48.0" size="3em" text="" visible="false" />
             <Hyperlink fx:id="logout_btn" layoutX="949.0" layoutY="25.0" onAction="#logout" prefHeight="26.0" prefWidth="66.0" text="Logout" visible="false">
                <font>
                   <Font size="14.0" />
                </font>
             </Hyperlink>
+            <Hyperlink fx:id="username_profile" layoutX="794.0" layoutY="23.0" onAction="#UserPage" prefHeight="24.0" prefWidth="72.0" />
+            <ImageView fitHeight="63.0" fitWidth="85.0" layoutX="14.0" layoutY="2.0" onMouseClicked="#HomePage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Users/moham/OneDrive/Desktop/85ad7b68b5d2810d162203c9ce4b8160.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>
    <center>
       <AnchorPane prefHeight="743.0" prefWidth="1035.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="711.0" fitWidth="1048.0" layoutX="-17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="711.0" fitWidth="1048.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Design/daniela-cuevas-t7YycgAoVSw-unsplash.jpg" />
                </image>
             </ImageView>
-            <TabPane layoutX="181.0" layoutY="137.0" prefHeight="340.0" prefWidth="747.0" styleClass="tabpane" stylesheets="@../Design/MainForm.css" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="resrvation_tabpane" layoutX="181.0" layoutY="137.0" prefHeight="340.0" prefWidth="747.0" styleClass="tabpane" stylesheets="@../Design/MainForm.css" tabClosingPolicy="UNAVAILABLE">
                <tabs>
                   <Tab style="-fx-border-radius: 10 0 0 0; -fx-background-radius: 10 0 0 0;" text="Flights">
                      <content>
@@ -69,10 +76,10 @@
                                  </styleClass>
                                  <children>
                                     <Button fx:id="round_trip_btn" layoutX="142.0" layoutY="23.0" mnemonicParsing="false" onAction="#roundTripBtn" prefHeight="32.0" prefWidth="92.0" styleClass="nav-btn" text="Round-trip" />
-                                    <Button fx:id="one_way_btn" layoutX="22.0" layoutY="23.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" styleClass="btn" text="One-way" />
+                                    <Button fx:id="one_way_btn" layoutX="22.0" layoutY="23.0" mnemonicParsing="false" onAction="#oneWayTripBtn" prefHeight="32.0" prefWidth="92.0" styleClass="btn" text="One-way" />
                                     <ComboBox fx:id="to_list" layoutX="279.0" layoutY="76.0" prefHeight="52.0" prefWidth="213.0" promptText="To" />
                                     <ComboBox fx:id="from_list" layoutX="22.0" layoutY="76.0" prefHeight="52.0" prefWidth="213.0" promptText="From" />
-                                    <DatePicker fx:id="oneWay_depart_lsit" layoutX="521.0" layoutY="73.0" prefHeight="54.0" prefWidth="172.0" promptText="Depart" />
+                                    <DatePicker fx:id="oneWay_depart_date" layoutX="521.0" layoutY="73.0" prefHeight="54.0" prefWidth="172.0" promptText="Depart" />
                                     <ComboBox fx:id="class_list" layoutX="342.0" layoutY="147.0" prefWidth="150.0" promptText="Economy">
                                        <opaqueInsets>
                                           <Insets />
@@ -89,17 +96,17 @@
                                  <children>
                                     <Button layoutX="142.0" layoutY="23.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" styleClass="btn" text="Round-trip" />
                                     <Button layoutX="22.0" layoutY="23.0" mnemonicParsing="false" onAction="#oneWayTripBtn" prefHeight="32.0" prefWidth="92.0" styleClass="nav-btn" text="One-way" />
-                                    <ComboBox layoutX="202.0" layoutY="76.0" prefHeight="52.0" prefWidth="151.0" promptText="To" />
-                                    <ComboBox layoutX="22.0" layoutY="76.0" prefHeight="52.0" prefWidth="150.0" promptText="From" />
-                                    <DatePicker layoutX="384.0" layoutY="75.0" prefHeight="54.0" prefWidth="138.0" promptText="Depart" />
-                                    <ComboBox layoutX="383.0" layoutY="151.0" prefWidth="150.0" promptText="Economy">
+                                    <ComboBox fx:id="round_way_to_list" layoutX="202.0" layoutY="76.0" prefHeight="52.0" prefWidth="151.0" promptText="To" />
+                                    <ComboBox fx:id="round_way_from_list" layoutX="22.0" layoutY="76.0" prefHeight="52.0" prefWidth="150.0" promptText="From" />
+                                    <DatePicker fx:id="round_way_departDate" layoutX="384.0" layoutY="75.0" prefHeight="54.0" prefWidth="138.0" promptText="Depart" />
+                                    <ComboBox fx:id="round_way_class_list" layoutX="383.0" layoutY="151.0" prefWidth="150.0" promptText="Economy">
                                        <opaqueInsets>
                                           <Insets />
                                        </opaqueInsets>
                                     </ComboBox>
                                     <ButtonBar layoutX="262.0" layoutY="56.0" prefHeight="40.0" prefWidth="200.0" />
-                                    <DatePicker layoutX="545.0" layoutY="75.0" prefHeight="54.0" prefWidth="138.0" promptText="Return" />
-                                    <Button layoutX="590.0" layoutY="165.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="101.0" styleClass="btn" text="Search" />
+                                    <DatePicker fx:id="round_way_returnDate" layoutX="545.0" layoutY="75.0" prefHeight="54.0" prefWidth="138.0" promptText="Return" />
+                                    <Button layoutX="590.0" layoutY="165.0" mnemonicParsing="false" onAction="#search" prefHeight="41.0" prefWidth="101.0" styleClass="btn" text="Search" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -138,7 +145,7 @@
                         </AnchorPane>
                      </content>
                      <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="34.0" fitWidth="25.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../Users/moham/OneDrive/Desktop/bed.png" />
                            </image>
@@ -219,8 +226,89 @@
                         <CheckBox fx:id="signup_showConpass_btn" layoutX="412.0" layoutY="309.0" mnemonicParsing="false" onAction="#signUpShowConfirmPassword" text="Show" />
                      </children>
                   </AnchorPane>
+                  <AnchorPane fx:id="reserve_pane" layoutX="288.0" layoutY="143.0" prefHeight="488.0" prefWidth="487.0" stylesheets="@../Design/MainForm.css" visible="false">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="19.0" layoutY="17.0" prefHeight="88.0" prefWidth="213.0" text="Flight Details">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="70.0" layoutY="128.0" text="From">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="76.0" layoutY="203.0" text="To">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="from_reserve_pane" editable="false" layoutX="223.0" layoutY="121.0" prefHeight="42.0" prefWidth="200.0" />
+                        <TextField fx:id="to_reserve_pane" editable="false" layoutX="223.0" layoutY="196.0" onKeyTyped="#signupUpdatePassword" prefHeight="42.0" prefWidth="200.0" />
+                        <Button layoutX="144.0" layoutY="414.0" mnemonicParsing="false" onAction="#reserve" prefHeight="53.0" prefWidth="198.0" styleClass="nav-btn" text="Reserve" />
+                        <Button layoutX="444.0" layoutY="14.0" mnemonicParsing="false" onAction="#reserveCloseBtn" prefHeight="30.0" prefWidth="20.0" />
+                        <FontAwesomeIcon glyphName="CLOSE" layoutX="449.0" layoutY="33.0" onMouseClicked="#signUpCloseBtn" text="" />
+                        <Label layoutX="63.0" layoutY="277.0" text="Depart">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="depart_reserve_pane" editable="false" layoutX="223.0" layoutY="270.0" onKeyTyped="#signupUpdateConfirmPassword" prefHeight="42.0" prefWidth="200.0" />
+                        <TextField fx:id="price_reserve_pane" editable="false" layoutX="223.0" layoutY="340.0" onKeyTyped="#signupUpdateConfirmPassword" prefHeight="42.0" prefWidth="200.0" />
+                        <Label layoutX="66.0" layoutY="347.0" text="Price">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
+            <BorderPane fx:id="UserPage" layoutX="104.0" layoutY="90.0" prefHeight="540.0" prefWidth="839.0" visible="false">
+               <left>
+                  <AnchorPane prefHeight="518.0" prefWidth="200.0" stylesheets="@../Design/MainForm.css" BorderPane.alignment="CENTER">
+                     <styleClass>
+                        <String fx:value="shadow" />
+                        <String fx:value="white-bg" />
+                     </styleClass>
+                     <children>
+                        <FontAwesomeIcon glyphName="USER" layoutX="77.0" layoutY="98.0" size="5em" text="" />
+                        <Label fx:id="userNamePage_label" contentDisplay="CENTER" layoutX="49.0" layoutY="124.0" prefHeight="35.0" prefWidth="102.0" />
+                        <Button layoutX="21.0" layoutY="211.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="156.0" styleClass="btn" stylesheets="@../Design/MainForm.css" text="Personal Information" />
+                        <Button layoutX="22.0" layoutY="290.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="156.0" styleClass="btn" stylesheets="@../Design/MainForm.css" text="Reservation" />
+                     </children>
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="512.0" prefWidth="639.0" stylesheets="@../Design/MainForm.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="-2.0" prefHeight="541.0" prefWidth="612.0" stylesheets="@../Design/MainForm.css">
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                              <String fx:value="radius" />
+                           </styleClass>
+                           <children>
+                              <TableView fx:id="reservation_table" layoutX="32.0" layoutY="14.0" prefHeight="386.0" prefWidth="553.0">
+                                <columns>
+                                  <TableColumn fx:id="from_col_table" prefWidth="149.60003662109375" text="From" />
+                                  <TableColumn fx:id="to_col_table" minWidth="0.0" prefWidth="111.199951171875" text="To" />
+                                    <TableColumn fx:id="date_col_table" prefWidth="136.79998779296875" text="Date" />
+                                    <TableColumn fx:id="price_col_table" prefWidth="96.8001708984375" text="Price" />
+                                    <TableColumn fx:id="Cancel_table" prefWidth="56.79995117187502" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
          </children>
       </AnchorPane>
    </center>

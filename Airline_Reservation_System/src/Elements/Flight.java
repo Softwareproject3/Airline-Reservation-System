@@ -1,20 +1,21 @@
 package Elements;
 
+import java.sql.Date;
+
 public class Flight {
 	private int id;
-	private String from, to, depart, retrn, type;
+	private String from, to;
 	private double economy_price, firstClass_price;
+	private Date depart;
 	
 	
-	public Flight(int id, String from, String to, String depart, String retrn, String type, double economy_price,
+	public Flight(int id, String from, String to, Date depart, double economy_price,
 			double firstClass_price) {
 		super();
 		this.id = id;
 		this.from = from;
 		this.to = to;
 		this.depart = depart;
-		this.retrn = retrn;
-		this.type = type;
 		this.economy_price = economy_price;
 		this.firstClass_price = firstClass_price;
 	}
@@ -36,24 +37,13 @@ public class Flight {
 	public void setTo(String to) {
 		this.to = to;
 	}
-	public String getDepart() {
+	public Date getDepart() {
 		return depart;
 	}
-	public void setDepart(String depart) {
+	public void setDepart(Date depart) {
 		this.depart = depart;
 	}
-	public String getRetrn() {
-		return retrn;
-	}
-	public void setRetrn(String retrn) {
-		this.retrn = retrn;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public double getEconomy_price() {
 		return economy_price;
 	}

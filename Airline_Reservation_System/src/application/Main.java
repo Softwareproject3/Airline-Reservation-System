@@ -15,7 +15,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("/Main/HomePage.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Airi Go");
+			primaryStage.setTitle("AirGo");
 			primaryStage.setResizable(false);
 			primaryStage.show();
 		} catch(Exception e) {
